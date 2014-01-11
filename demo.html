@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap-tabImprove</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-tabimprove.css">
+    <script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-tabdrop.js"></script>
+    
+    <script>
+
+    var tabCount = 0;
+
+    $(function () {
+
+      $('#myTab a:first').tab('show');
+
+      $('.nav-tabs').tabdrop();
+
+      registerTabComposeEvent();
+      registerTabCloseEvent();
+    });
+
+    function registerTabComposeEvent(){
+
+      $(".composeTab").click(function(e){
+          
+          var tabId = "tab" + tabCount; //this is id on tab content div where the 
+          tabCount = tabCount + 1; //increment compose count
+
+          $('.nav-tabs').append('<li><a href="#' + tabId + '" data-toggle="tab"> <span class="close closeTab">&times;</span>'+$(this).html()+'</a></li>');
+          $('.tab-content').append('<div class="tab-pane" id="' + tabId + '"></div>');
+
+          //新建tab页内容
+          craeteNewTabAndLoadUrl("", "./"+$(this).attr('taburl'), "#" + tabId);
+
+          showTab(tabId);
+          registerTabCloseEvent();
+
+          $('.nav-tabs').tabdrop('layout');
+      });
+    }
+
+    function registerTabCloseEvent() {
+
+      $(".closeTab").click(function () {
+          //there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
+          var tabContentId = $(this).parent().attr("href");
+          $(this).parent().parent().remove(); //remove li of tab
+          
+          $(tabContentId).remove(); //remove respective tab content
+
+          $('.nav-tabs').tabdrop('layout');
+
+          showTab('graph');
+      });
+    }
+
+    function showTab(tabId) {
+      $('#myTab a[href="#' + tabId + '"]').tab('show');
+    }
+
+    //need change
+    function craeteNewTabAndLoadUrl(parms, url, loadDivSelector) {
+
+      $("" + loadDivSelector).load(url, function (response, status, xhr) {
+        if (status == "error") {
+            var msg = "Sorry but there was an error getting details ! ";
+            $("" + loadDivSelector).html(msg + xhr.status + " " + xhr.statusText);
+            $("" + loadDivSelector).html("Load Ajax Content Here..."+loadDivSelector);
+          }
+      });
+    }
+
+    </script>
+</head>
+<body>
+  <div class="container">
+   
+    <div class="row">
+
+      <div class="col-md-2">
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-default composeTab" taburl="1">增加选项卡1</button> 
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              显示A组按钮
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="composeTab" taburl="2">增加选项卡2</a></li>
+              <li><a href="#" class="composeTab" taburl="3">增加选项卡3</a></li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-default composeTab" taburl="4">增加选项卡4</button>
+        </div>
+      </div>
+
+
+      <div class="col-md-10">
+        <ul class="nav nav-tabs" id="myTab">
+        </ul>
+        <div class="tab-content">
+        </div>  
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
