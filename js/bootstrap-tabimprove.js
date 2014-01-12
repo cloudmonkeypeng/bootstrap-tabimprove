@@ -20,7 +20,6 @@ function registerTabComposeEvent(){
       $('.nav-tabs').append('<li><a href="#' + tabId + '" data-toggle="tab"> <span class="close closeTab">&times;</span>'+$(this).html()+'</a></li>');
       $('.tab-content').append('<div class="tab-pane" id="' + tabId + '"></div>');
 
-      //新建tab页内容
       craeteNewTabAndLoadUrl("", "./"+$(this).attr('taburl'), "#" + tabId);
 
       showTab(tabId);
