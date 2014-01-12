@@ -19,4 +19,9 @@ Added functionality: Add buttons which can compose and close tabs.Tabs' name com
 
 ##demo
 
-(http://cloudmonkeypeng.github.io/bootstrap-tabimprove/demo.html)
+http://cloudmonkeypeng.github.io/bootstrap-tabimprove/demo.html
+
+
+##demo.gif
+
+http://cloudmonkeypeng.github.io/bootstrap-tabimprove/tabimprove.gif
