@@ -12,10 +12,8 @@ The dropdown tab appears when your tabs do not all fit in the same row.
 Added functionality: Add buttons which can compose and close tabs.Tabs' name comes from button name. Tabs' url comes from 'taburl' 
 
 
-requirement
-===================
+##Requirements
 
-bootstrap 
-
-jquery
+* [Bootstrap](http://twitter.github.com/bootstrap/) 2.0.4+
+* [jQuery](http://jquery.com/) 1.7.1+
 
