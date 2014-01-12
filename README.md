@@ -24,4 +24,4 @@ http://cloudmonkeypeng.github.io/bootstrap-tabimprove/demo.html
 
 ##demo.gif
 
-(http://cloudmonkeypeng.github.io/bootstrap-tabimprove/tabimprove.gif)
+[gif](http://cloudmonkeypeng.github.io/bootstrap-tabimprove/tabimprove.gif)
