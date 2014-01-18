@@ -39,8 +39,6 @@ function registerTabCloseEvent() {
       $(tabContentId).remove(); //remove respective tab content
 
       $('.nav-tabs').tabdrop('layout');
-
-      showTab('graph');
   });
 }
 

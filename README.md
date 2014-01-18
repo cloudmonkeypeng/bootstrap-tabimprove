@@ -17,8 +17,8 @@ Added functionality: Add buttons which can compose and close tabs.Tabs' name com
 * [Bootstrap](http://twitter.github.com/bootstrap/) 2.0.4+
 * [jQuery](http://jquery.com/) 1.7.1+
 
-##demo
+##Demo && Screenhot
 
-http://cloudmonkeypeng.github.io/bootstrap-tabimprove/demo.html
+http://cloudmonkeypeng.github.io/bootstrap-tabimprove/index.html
 
 ![gif](http://cloudmonkeypeng.github.io/bootstrap-tabimprove/tabimprove.gif)
